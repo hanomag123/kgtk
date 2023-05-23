@@ -1,7 +1,26 @@
 <header class="header">
-  {{> menu}}
 
-  <button class="menu-button myclass">
+  <div class="header__top container">
+    <div class="header__logo">
+      <svg><use href='#logoIcon'></use></svg>
+    </div>
+  
+    {{> menu}}
+  </div>
+
+  <nav class="header__bottom container">
+    <ul>
+      <li><a href="#">Сведения об<br>образовательной организации</a></li>
+      <li><a href="#">Специальности</a></li>
+      <li><a href="#">Абитуриентам</a></li>
+      <li><a href="#">Студентам</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Новости</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <button class="menu-button">
     <span class="burger-button-close">
       <span id="first-line-burger"></span>
       <span id="second-line-burger"></span>

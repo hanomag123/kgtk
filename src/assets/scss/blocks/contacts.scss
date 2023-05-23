@@ -1,0 +1,263 @@
+.breadcrumbs {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+  color: var(--black);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 12rem;
+  a {
+    transition: color .3s;
+    &:hover {
+      color: var(--green);
+    }
+  }
+  li {
+    &:first-child {
+      &::before {
+        content: unset;
+      }
+    }
+    &::before {
+      content: '>';
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 140%;
+      /* identical to box height, or 20px */
+      
+      
+      /* Grey */
+      
+      color: var(--grey);
+      margin-right: 2rem;
+    }
+    &:last-child {
+      a {
+        color: var(--grey);
+      }
+    }
+  }
+}
+
+.title-margin {
+  margin-top: 2rem;
+}
+
+.page-columns {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4rem;
+}
+
+.page-columns__left {
+  grid-column: 6 span;
+}
+.page-columns__right {
+  grid-column: 6 span;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4rem;
+}
+.page-columns__container {
+  grid-column: 2 / 7;
+  padding: 8rem 7.1rem;
+  background-color: var(--lgreen);
+  border-radius: 1rem;
+  height: min-content;
+}
+
+.contacts-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 4rem;
+}
+
+.contacts-block {
+  padding: 3rem;
+  background-color: var(--lgreen);
+  border-radius: 1rem;
+  min-height: 25.2rem;
+  &.--wide {
+    grid-column: 2 span;
+  }
+}
+
+.contacts-name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 140%;
+  /* or 22px */
+  
+  text-transform: uppercase;
+  
+  /* Black */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: var(--black);
+  }
+}
+
+.contacts-desc {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 0.1rem solid #414941;
+}
+
+.mt-100 {
+  margin-top: 10rem;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.contacts-list__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+  /* identical to box height, or 20px */
+  
+  text-transform: uppercase;
+  
+  /* Black */
+}
+
+.contacts-list__subtitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+}
+
+.contacts-list__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+  
+  
+  /* Black */
+  margin-top: 0.5rem;
+}
+
+.contacts-form-container {
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  border: 0.1rem solid var(--grey);
+  border-radius: 0.5rem;
+  background-color: var(--white);
+
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.24712 7.73006L10.6106 3.48406C10.6458 3.4491 10.6875 3.42146 10.7334 3.40274C10.7794 3.38403 10.8285 3.3746 10.8781 3.37501C10.9277 3.37542 10.9767 3.38567 11.0223 3.40514C11.0679 3.42462 11.1092 3.45295 11.1438 3.48848C11.1783 3.52402 11.2055 3.56606 11.2238 3.61218C11.242 3.65829 11.2509 3.70756 11.2499 3.75714C11.249 3.80671 11.2382 3.85561 11.2183 3.901C11.1983 3.94638 11.1695 3.98736 11.1336 4.02156L6.50862 8.52156C6.43861 8.58967 6.34479 8.62777 6.24712 8.62777C6.14944 8.62777 6.05562 8.58967 5.98562 8.52156L1.36062 4.02156C1.32471 3.98736 1.29594 3.94638 1.27598 3.901C1.25601 3.85561 1.24524 3.80671 1.2443 3.75714C1.24336 3.70756 1.25225 3.65829 1.27048 3.61218C1.2887 3.56606 1.31589 3.52402 1.35047 3.48848C1.38505 3.45295 1.42633 3.42462 1.47193 3.40514C1.51753 3.38567 1.56653 3.37542 1.61612 3.37501C1.6657 3.3746 1.71487 3.38403 1.76079 3.40274C1.8067 3.42146 1.84845 3.4491 1.88362 3.48406L6.24712 7.73006Z' fill='%231A1C19'/%3E%3C/svg%3E%0A");
+  transition: transform .3s;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  // border-color: transparent transparent #fff transparent;
+  transform: translateY(-50%) rotate(180deg);
+}
+.select-arrow-active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: var(--grey);
+  font-size: 1.4rem;
+  line-height: 140%;
+  padding: 1.5rem 1.6rem;
+  // border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+
+}
+.select-items > div {
+  color: var(--black);
+  padding: 1rem 1.2rem;
+}
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: var(--white);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0px 0.5rem 1rem rgba(19, 33, 42, 0.15);
+  border: 0.1rem solid var(--grey);
+  border-top: 0;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: var(--lgreen);
+}
+.select-selected--active {
+  color: var(--black);
+}
