@@ -2,6 +2,91 @@
   display: grid;
   grid-template-columns: 35.5rem 1fr;
   gap: 6rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(1, 1fr);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.maininfo-list>li:last-child>.maininfo-block-content>div:last-child {
+  @include breakpoint($xl-bp) {
+    padding-bottom: 0;
+  }
+}
+
+.maininfo-list.--abiturients .maininfo-block-content>div:last-child {
+  @include breakpoint($xl-bp) {
+    padding-bottom: 0;
+  }
+}
+
+.maininfo-block-content {
+  display: none;
+  animation: fadeEffect 1s;
+
+  &>div:last-child {
+    @include breakpoint($xl-bp) {
+      padding-bottom: 4rem;
+    }
+  }
+
+  &>div>* {
+    @include breakpoint($xl-bp) {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+  }
+
+  .table-container {
+    @include breakpoint($xl-bp) {
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding-left: 1.6rem;
+    }
+  }
+
+  .teachers-list {
+    .swiper-slide {
+      @include breakpoint($xl-bp) {
+        width: 25.3rem;
+        margin-right: 4rem;
+      }
+
+      @include breakpoint($sm-bp) {
+        margin-right: 1.6rem;
+      }
+    }
+  }
+
+}
+
+.maininfo-content {
+  width: 100%;
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
+  &>div {
+    animation: fadeEffect 1s;
+  }
+
+  .table-container,
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .maininfo-list {
@@ -18,24 +103,109 @@
   font-size: 1.4rem;
   line-height: 140%;
   height: min-content;
-  a {
+
+  @include breakpoint($xl-bp) {
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    border: 0;
+    gap: 2rem;
+  }
+
+  &>li>.maininfo-button {
+    padding: 0;
     display: block;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
+    width: 100%;
+    border: 0;
     background-color: transparent;
-    transition: background-color .3s;
-    &:hover {
-      background-color: var(--lgreen);
+    border-radius: 0;
+
+    @include breakpoint($xl-bp) {
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
+
+    @include breakpoint($sm-bp) {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+
+    a,
+    button {
+      text-align: start;
+      display: block;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      transition: background-color .3s;
+      border: 0;
+      width: 100%;
+
+      @include breakpoint($xl-bp) {
+        border: 0.1rem solid var(--grey);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          content: '';
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.32949 10.3067L14.1475 4.64541C14.1944 4.5988 14.25 4.56195 14.3113 4.53699C14.3725 4.51204 14.438 4.49947 14.5042 4.50002C14.5703 4.50057 14.6356 4.51422 14.6964 4.54019C14.7572 4.56616 14.8122 4.60393 14.8584 4.65131C14.9045 4.6987 14.9407 4.75475 14.965 4.81624C14.9893 4.87772 15.0012 4.94342 14.9999 5.00952C14.9987 5.07562 14.9843 5.14081 14.9577 5.20133C14.9311 5.26184 14.8927 5.31648 14.8448 5.36207L8.67815 11.3621C8.58481 11.4529 8.45972 11.5037 8.32949 11.5037C8.19926 11.5037 8.07416 11.4529 7.98082 11.3621L1.81415 5.36207C1.76628 5.31648 1.72792 5.26184 1.7013 5.20133C1.67468 5.14081 1.66033 5.07562 1.65907 5.00952C1.65781 4.94342 1.66967 4.87772 1.69397 4.81624C1.71827 4.75475 1.75452 4.6987 1.80062 4.65131C1.84673 4.60393 1.90177 4.56616 1.96257 4.54019C2.02337 4.51422 2.08871 4.50057 2.15482 4.50002C2.22093 4.49947 2.2865 4.51203 2.34772 4.53699C2.40894 4.56195 2.4646 4.5988 2.51149 4.64541L8.32949 10.3067Z' fill='%231A1C19'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-size: contain;
+
+          width: 1.6rem;
+          height: 1.6rem;
+          display: inline-block;
+          transition: transform .3s, filter .3s;
+        }
+      }
+
+      @include breakpoint($sm-bp) {
+        padding: 1rem 1.6rem;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--lgreen);
+        }
+      }
+
+    }
+
     &.--active {
-      background-color: var(--green);
-      color: var(--white);
+
+      a,
+      button {
+        background-color: var(--green);
+        color: var(--white);
+
+        &::after {
+          transform: rotate(180deg);
+          filter: invert(1);
+        }
+      }
     }
+
+    &.--active+.maininfo-block-content {
+      @include breakpoint($xl-bp) {
+        display: block;
+      }
+    }
+  }
+}
+
+.maininfo-subtitle {
+  @include breakpoint($xl-bp) {
+    display: none;
   }
 }
 
 .maininfo-margin {
   margin-top: 6rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2rem;
+  }
 }
 
 .maininfo-columns {
@@ -43,35 +213,146 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
   max-width: 108.5rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint($sm-bp) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
 }
 
+.table.maininfo-margin {
+  @include breakpoint($xl-bp) {
+    margin-top: 3rem;
+  }
+}
+
+table,
 .table {
   border: 0.1rem solid var(--grey);
   border-radius: 1rem;
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 140%;
-  li {
-    padding: 2rem;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
   }
+
+  td {
+    padding: 2rem;
+
+    @include breakpoint($sm-bp) {
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+  strong {
+    text-transform: uppercase;
+    line-height: 125%;
+    @include breakpoint($sm-bp) {
+      line-height: 120%;
+    }
+  }
+
   a {
     display: block;
     color: var(--green);
     text-decoration: underline;
+
     &:hover {
       text-decoration: none;
     }
   }
+
   &.--education {
     width: min-content;
-    .table-row, .table-header {
-      grid-template-columns: repeat(2,30rem) repeat(3,20rem);
+
+    tr,thead > tr,
+    .table-row,
+    .table-header {
+      display: flex;
+      width: max-content;
+
+      &>* {
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          width: 30rem;
+        }
+
+        width: 20rem;
+        flex: 0 0 auto;
+
+        @include breakpoint($sm-bp) {
+          width: 16rem;
+
+          &:nth-child(1) {
+            width: 17.5rem;
+          }
+
+          &:nth-child(2) {
+            width: 22.4rem;
+          }
+        }
+      }
     }
   }
+
   &.--standarts {
     width: min-content;
-    .table-row, .table-header {
-      grid-template-columns: 30rem repeat(4,20rem);
+
+    tr,thead > tr,
+    .table-row,
+    .table-header {
+      display: flex;
+      width: max-content;
+
+      &>* {
+
+        &:nth-child(1) {
+          width: 30rem;
+        }
+
+        width: 20rem;
+        flex: 0 0 auto;
+
+        @include breakpoint($sm-bp) {
+          width: 16rem;
+
+          &:nth-child(1) {
+            width: 18.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.--abiturients {
+    width: min-content;
+
+    tr,thead > tr,
+    .table-row,
+    .table-header {
+      display: flex;
+      width: max-content;
+
+      &>* {
+        padding: 2rem;
+        font-size: 1.4rem;
+
+        &:nth-child(1) {
+          width: 33rem;
+        }
+
+        width: 22rem;
+        flex: 0 0 auto;
+      }
     }
   }
 }
@@ -82,8 +363,14 @@
   line-height: 125%;
   text-transform: uppercase;
   color: var(--green);
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
 }
 
+thead > tr,
 .table-header {
   font-style: normal;
   font-weight: 700;
@@ -94,15 +381,40 @@
   background-color: var(--lgreen);
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
+  min-height: min-content;
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
+    line-height: 120%;
   }
-
-.table-header, .table-row {
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
 }
 
+thead > tr,tr,
+.table-header,
+.table-row {
+  display: flex;
+  width: max-content;
+
+  &>* {
+    width: 23.7rem;
+    flex: 0 0 auto;
+
+    @include breakpoint($sm-bp) {
+      width: 16rem;
+
+      &:nth-child(1) {
+        width: 11.9rem;
+      }
+    }
+  }
+}
+
+tr,
 .table-row {
   min-height: 8rem;
+
+  @include breakpoint($sm-bp) {
+    min-height: 5rem;
+  }
 }
 
 .documents-list {
@@ -114,14 +426,25 @@
   font-size: 1.4rem;
   line-height: 140%;
   max-width: 108.2rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 4rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
+  }
+
   ul {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
+
   a {
     color: var(--green);
     text-decoration: underline;
+
     &:hover {
       text-decoration: none;
     }
@@ -135,18 +458,31 @@
   line-height: 125%;
 
   text-transform: uppercase;
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.4rem;
+  }
 }
 
 .teachers-top {
   display: flex;
   align-items: baseline;
   gap: 3rem;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
 }
 
 .teachers-list {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    gap: 0;
+  }
 }
 
 .mattech-list {
@@ -157,28 +493,73 @@
 
 .mattech-margin {
   margin-top: 12rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
 }
 
 .mattech-block {
   border: 0.1rem solid var(--grey);
   border-radius: 1rem;
   display: grid;
-  grid-template-columns: repeat(2,50rem);
+  grid-template-columns: repeat(2, 50rem);
   width: min-content;
   justify-items: center;
+  overflow: hidden;
+
+  @include breakpoint($cos-bp) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.mattech-header {
-  grid-column: 2 span;
-  background-color: var(--lgreen);
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+.mattech-header,
+[data-head]::before {
   font-style: normal;
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 125%;
   text-transform: uppercase;
+  background-color: var(--lgreen);
+
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
+    line-height: 120%;
+  }
+}
+
+[data-head] {
+  &::before {
+    @include breakpoint($xl-bp) {
+      content: attr(data-head);
+      padding: 2rem;
+      display: block;
+      width: 100%;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+}
+
+.mattech-header {
+  grid-column: 2 span;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
   li {
     padding: 2rem;
   }
@@ -186,6 +567,10 @@
 
 .mattech-block__list {
   padding: 2rem;
+
+  @include breakpoint($sm-bp) {
+    padding: 0.8rem 1.6rem;
+  }
 }
 
 .mattech-block__center {
@@ -194,6 +579,11 @@
   justify-content: center;
   flex-direction: column;
   max-width: 40rem;
+
+  @include breakpoint($xl-bp) {
+    grid-column: 1 span;
+    max-width: 100%;
+  }
 }
 
 .font-bold {

@@ -2,18 +2,43 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  @include breakpoint($sm-bp) {
+    gap: 2rem;
+  }
 }
 
 .accordion {
   border: 0.1rem solid var(--grey);
   border-radius: 1rem;
   transition: background-color .3s, border-color .3s;
-  &:hover {
-    background-color: var(--lgreen);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--lgreen);
+    }
   }
+
+
   &.--active {
     border-color: var(--lgreen);
     background-color: var(--lgreen);
+
+    .accordion-button {
+      background-color: var(--lgreen);
+
+      svg {
+        transform: rotate(0);
+        fill: var(--green);
+      }
+    }
+
+    .accordion-panel {
+      max-height: 100vh;
+      background-color: var(--lgreen);
+      @include breakpoint($xl-bp) {
+        max-height: 200vh;
+      }
+    }
   }
 }
 
@@ -24,26 +49,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  gap: 2rem;
   width: 100%;
   transition: background-color .3s;
   border-radius: 1rem;
-
+  text-align: start;
   svg {
     width: 2rem;
     height: 2rem;
     transform: rotate(180deg);
     fill: var(--grey);
-  }
-  &.--active {
-    background-color: var(--lgreen);
-    svg {
-      transform: rotate(0);
-      fill: var(--green);
-    }
-  }
-  &.--active + .accordion-panel {
-    max-height: 100vh;
-    background-color: var(--lgreen);
+    flex: 0 0 auto;
   }
 }
 

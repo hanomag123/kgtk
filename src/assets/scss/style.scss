@@ -21,20 +21,24 @@
   justify-content: center;
   transition: .3s opacity;
   will-change: opacity;
+
   .spin {
     transform: scale(3);
   }
 }
+
 .lds-ring {
   display: inline-block;
   position: relative;
   width: 8rem;
   height: 8rem;
+
   @include breakpoint($sm-bp) {
     width: 5rem;
     height: 5rem;
   }
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -46,21 +50,26 @@
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #387B46 transparent transparent transparent;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
   z-index: 1;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
   z-index: 1;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
   z-index: 1;
 }
+
 .lds-ring .logo {
   animation: none;
   border-color: none;
+
   svg {
     position: absolute;
     top: 50%;
@@ -70,10 +79,12 @@
     height: 70%;
   }
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -81,7 +92,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: calc(100vw / 1920 * 10);
+  font-size: calc(100vw / 1925 * 10);
   // @include breakpoint($cos-bp) {
   //   font-size: calc(100vw / 1600 * 10);
   // }
@@ -95,9 +106,9 @@ html {
   }
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
+// ::-webkit-scrollbar {
+//   width: 0;
+// }
 
 *,
 *:before,
@@ -113,6 +124,20 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 150%;
+  &::-webkit-scrollbar {
+    width: 0.5rem; 
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 0;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--lgrey);
+    border-radius: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border-radius: 0.5rem;
+  }
 }
 
 img {
@@ -131,29 +156,47 @@ svg {
 .container {
   padding-right: 15rem;
   padding-left: 15rem;
-  // @include breakpoint($cos-bp) {
-  //   padding-right: 5rem;
-  //   padding-left: 5rem;
-  // }
   @include breakpoint($xl-bp) {
     padding-right: 4rem;
     padding-left: 4rem;
   }
+
   @include breakpoint($sm-bp) {
     padding-right: 1.6rem;
     padding-left: 1.6rem;
   }
 }
+.table-container {
+  padding-right: 0;
+  margin-left: 0;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.5rem; 
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 0.7rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--lgrey);
+    border-radius: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border-radius: 0.5rem;
+  }
+  @include breakpoint($xl-bp) {
+    padding-left: 4rem;
+    &::-webkit-scrollbar:horizontal {
+      height: 0;
+    }
+  }
+
+  @include breakpoint($sm-bp) {
+    padding-left: 1.6rem;
+  }
+}
 
 /* Blocks */
-
-@import './blocks/menu.scss';
-@import './blocks/main.scss';
-@import './blocks/header.scss';
-@import './blocks/footer.scss';
-@import './blocks/contacts.scss';
-@import './blocks/faq.scss';
-@import './blocks/maininfo.scss';
 
 
 
@@ -167,15 +210,18 @@ svg {
 
 .img-contain {
   display: block;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 }
+
 .img-cover {
   display: block;
   overflow: hidden;
+
   img {
     width: 100%;
     height: 100%;
@@ -183,33 +229,39 @@ svg {
   }
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 110%;
+
   @include breakpoint($xl-bp) {
     font-size: 2.8rem;
     line-height: 108%;
   }
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-style: normal;
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 120%;
+
   @include breakpoint($xl-bp) {
     font-size: 2rem;
   }
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-style: normal;
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 125%;
+
   @include breakpoint($xl-bp) {
     font-size: 1.4rem;
   }
@@ -229,11 +281,38 @@ h4, .h4 {
   line-height: 140%;
 }
 
+.mob-text-2 {
+  @include breakpoint($xl-bp) {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 140%;
+  }
+}
+
 .text-3 {
   font-style: normal;
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 150%;
+}
+
+.mob-text-3 {
+  @include breakpoint($xl-bp) {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 150%;
+  }
+}
+
+.text-link {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+  @include breakpoint($sm-bp) {
+    font-size: 1.2rem;
+  }
 }
 
 .text-button {
@@ -242,8 +321,9 @@ h4, .h4 {
   font-size: 1.6rem;
   line-height: 125%;
   /* identical to box height, or 20px */
-  
+
   text-transform: uppercase;
+
   @include breakpoint($xl-bp) {
     font-size: 1.4rem;
   }
@@ -256,7 +336,7 @@ h4, .h4 {
   font-size: 1.6rem;
   line-height: 125%;
   /* identical to box height, or 20px */
-  
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -270,23 +350,34 @@ h4, .h4 {
   padding: 1.6rem 3rem;
   border: 0;
   flex: none;
+  border: 0.1rem solid transparent;
+  transition: color .3s, background-color .3s;
+  &:hover {
+    background-color: transparent;
+    color: var(--green);
+    border: 0.1rem solid var(--green);
+  }
 }
 
 .text-black {
   color: var(--black);
 }
+
 .text-white {
   color: var(--white);
 }
+
 .text-green {
   color: var(--green);
 }
+
 .text-red {
   color: var(--red);
 }
 
 .page-margin {
   margin-top: 20rem;
+
   @include breakpoint($xl-bp) {
     margin-top: 10rem;
   }
@@ -294,6 +385,7 @@ h4, .h4 {
 
 .page-margin-container {
   margin-top: 8rem;
+
   @include breakpoint($xl-bp) {
     margin-top: 4rem;
   }
@@ -314,3 +406,27 @@ h4, .h4 {
   display: flex;
   gap: 2rem;
 }
+
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.text-center {
+  text-align: center;
+}
+
+@import './blocks/menu.scss';
+@import './blocks/main.scss';
+@import './blocks/header.scss';
+@import './blocks/footer.scss';
+@import './blocks/contacts.scss';
+@import './blocks/faq.scss';
+@import './blocks/maininfo.scss';
+@import './blocks/abiturients.scss';
+@import './blocks/specialties.scss';

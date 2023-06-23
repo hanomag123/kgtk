@@ -102,6 +102,7 @@
   @include breakpoint($xl-bp) {
     flex-direction: column;
     gap: 2rem;
+
     .input-wrapper {
       width: 100%;
     }
@@ -115,6 +116,7 @@
 .form-agreetext {
   br {
     display: none;
+
     @include breakpoint($sm-bp) {
       display: block;
     }
@@ -285,13 +287,26 @@ input:-webkit-autofill:active+.input-placeholder {
   }
 }
 
+.desctop-br {
+  @include breakpoint($sm-bp) {
+    display: none;
+  }
+}
+
 .mob-brblock {
   br {
     display: none;
+
     @include breakpoint($xl-bp) {
       display: block;
     }
   }
+}
+
+.mob-br {
+  display: none;
+  @include breakpoint($sm-bp) {
+    display: block; }
 }
 
 .advantages-item {
@@ -300,12 +315,15 @@ input:-webkit-autofill:active+.input-placeholder {
   gap: 2rem;
   padding-left: 13.8rem;
   position: relative;
+
   @include breakpoint($xl-bp) {
     padding-left: 5rem;
   }
+
   @include breakpoint($sm-bp) {
     gap: 1rem;
   }
+
   &::before {
     content: '';
     position: absolute;
@@ -315,8 +333,10 @@ input:-webkit-autofill:active+.input-placeholder {
     height: 0.2rem;
     border-radius: 1rem;
     background-color: var(--green);
+
     @include breakpoint($xl-bp) {
       width: 3rem;
+      top: 1rem;
     }
   }
 }
@@ -341,6 +361,7 @@ input:-webkit-autofill:active+.input-placeholder {
   background-color: var(--green);
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
+
   @include breakpoint($sm-bp) {
     padding: 2rem;
   }
@@ -355,10 +376,12 @@ input:-webkit-autofill:active+.input-placeholder {
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
   padding: 4rem;
+
   @include breakpoint($xl-bp) {
     gap: 2rem;
     padding: 2rem;
   }
+
   @include breakpoint($sm-bp) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -370,6 +393,7 @@ input:-webkit-autofill:active+.input-placeholder {
     border-radius: 1rem;
     padding: 3rem;
     display: block;
+
     @include breakpoint($xl-bp) {
       padding: 2rem;
     }
@@ -391,9 +415,11 @@ input:-webkit-autofill:active+.input-placeholder {
 .training-time {
   margin-top: 13.9rem;
   display: block;
+
   @include breakpoint($xl-bp) {
     margin-top: 4rem;
   }
+
   @include breakpoint($sm-bp) {
     margin-top: 2rem;
   }
@@ -427,6 +453,7 @@ input:-webkit-autofill:active+.input-placeholder {
   @include breakpoint($xl-bp) {
     flex-direction: column;
   }
+
   @include breakpoint($sm-bp) {
     gap: 2rem;
   }
@@ -434,6 +461,7 @@ input:-webkit-autofill:active+.input-placeholder {
 
 .licence-item__img {
   height: 34rem;
+
   @include breakpoint($xl-bp) {
     height: 49.1rem;
   }
@@ -443,9 +471,11 @@ input:-webkit-autofill:active+.input-placeholder {
   max-width: 37.2rem;
   padding-top: 3rem;
   position: relative;
+
   @include breakpoint($sm-bp) {
     padding-top: 1.3rem;
   }
+
   &::before {
     content: '';
     position: absolute;
@@ -462,6 +492,7 @@ input:-webkit-autofill:active+.input-placeholder {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
   @include breakpoint($xl-bp) {
     align-items: center;
   }
@@ -474,6 +505,50 @@ input:-webkit-autofill:active+.input-placeholder {
   gap: 1rem;
 }
 
+.news-list.swiper-wrapper {
+  @include breakpoint($xl-bp) {
+    display: flex;
+    gap: 0;
+  }
+
+  .swiper-slide {
+    @include breakpoint($xl-bp) {
+      margin-right: 1.6rem;
+      width: 25.3rem;
+    }
+  }
+
+  .news-img {
+    @include breakpoint($sm-bp) {
+      height: 23rem;
+    }
+  }
+
+  .news-title {
+    @include breakpoint($xl-bp) {
+      margin-top: 2rem;
+    }
+    @include breakpoint($sm-bp) {
+      display: -webkit-box;
+      max-width: 100%;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 1.4rem;
+    }
+  }
+
+  .news-desc {
+    @include breakpoint($sm-bp) {
+      display: -webkit-box;
+      max-width: 100%;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+
 .news-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -481,6 +556,10 @@ input:-webkit-autofill:active+.input-placeholder {
   row-gap: 8rem;
 
   @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+  @include breakpoint($sm-bp) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -494,6 +573,12 @@ input:-webkit-autofill:active+.input-placeholder {
   display: block;
   margin-top: 4rem;
   transition: color .3s;
+  @include breakpoint($xl-bp) {
+    margin-top: 2rem;
+  }
+  @include breakpoint($sm-bp) {
+    font-size: 1.6rem;
+  }
 }
 
 .news-desc {
@@ -510,6 +595,9 @@ input:-webkit-autofill:active+.input-placeholder {
 
   &.--wider {
     grid-column: 2 span;
+    @include breakpoint($xl-bp) {
+      grid-column: 1 span;
+    }
   }
 }
 
@@ -542,15 +630,36 @@ input:-webkit-autofill:active+.input-placeholder {
   border-radius: 1rem;
 }
 
-.main-img {
+.textus-img {
   height: 50rem;
   width: 100%;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+}
+
+.textus-form {
+  @include breakpoint($xl-bp) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--lgreen);
+  }
 }
 
 .teachers-block {
   display: flex;
   gap: 4rem;
   align-items: center;
+  @include breakpoint($xl-bp) {
+    gap: 1.5rem;
+  }
+}
+
+.teachers-buttons {
+  @include breakpoint($sm-bp) {
+    display: none;
+  }
 }
 
 .teachers-red {
@@ -578,6 +687,7 @@ input:-webkit-autofill:active+.input-placeholder {
 
   @include breakpoint($xl-bp) {
     grid-template-columns: repeat(1, 1fr);
+    gap: 4rem;
   }
 }
 
@@ -587,16 +697,26 @@ input:-webkit-autofill:active+.input-placeholder {
   .swiper-slide {
     width: 37.5rem;
     margin-right: 4rem;
+    @include breakpoint($xl-bp) {
+      width: 25.3rem;
+      margin-right: 2rem;
+    }
   }
 }
 
 .teachers-img {
   height: 45rem;
   border-radius: 1rem;
+  @include breakpoint($xl-bp) {
+    height: 30rem;
+  }
 }
 
 .teachers-name {
   margin-top: 4rem;
+  @include breakpoint($sm-bp) {
+    margin-top: 2rem;
+  }
 }
 
 .teachers-type {
@@ -607,6 +727,10 @@ input:-webkit-autofill:active+.input-placeholder {
   background-color: var(--green);
   padding-top: 15rem;
   padding-bottom: 15rem;
+  @include breakpoint($xl-bp) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 .reviews-container {
@@ -617,10 +741,30 @@ input:-webkit-autofill:active+.input-placeholder {
 
   @include breakpoint($xl-bp) {
     grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+    gap: 4rem;
+  }
+  @include breakpoint($sm-bp) {
+    padding-right: 2rem;
+  }
+}
+
+.reviews-buttons {
+  @include breakpoint($sm-bp) {
+    display: none;
+  }
+}
+.reviews-buttons-bot {
+  display: none;
+  @include breakpoint($sm-bp) {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
   }
 }
 
 .reviews-block {
+  font-style: normal;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
@@ -633,6 +777,14 @@ input:-webkit-autofill:active+.input-placeholder {
   color: var(--white);
   border-bottom: 0.1rem solid rgba($color: #FFFFFF, $alpha: 0.5);
   padding-bottom: 8rem;
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    padding-bottom: 0;
+    border: 0;
+    br {
+      display: none;
+    }
+  }
 }
 
 .reviews-swiper {
@@ -646,7 +798,12 @@ input:-webkit-autofill:active+.input-placeholder {
     border-radius: 1rem;
     height: min-content;
     position: relative;
-
+    @include breakpoint($xl-bp) {
+      padding: 2rem;
+    }
+    @include breakpoint($sm-bp) {
+      width: 100%;
+    }
     &::before {
       content: '';
       width: 100%;
@@ -681,15 +838,39 @@ input:-webkit-autofill:active+.input-placeholder {
 
     color: var(--red);
     display: block;
+    @include breakpoint($xl-bp) {
+      font-size: 8rem;
+    }
   }
 }
 
 .reviews-name {
   margin-top: 6rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 3rem;
+  }
 }
 
 .reviews-type {
   margin-top: 0.6rem;
+}
+
+.partners {
+  @include breakpoint($xl-bp) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.partners-title {
+  @include breakpoint($xl-bp) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @include breakpoint($sm-bp) {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
 }
 
 .partners-wrapper {
@@ -698,7 +879,14 @@ input:-webkit-autofill:active+.input-placeholder {
 
 .partners-swiper {
   padding: 0.1rem;
-
+  @include breakpoint($xl-bp) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @include breakpoint($sm-bp) {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
   .swiper-slide {
     padding: 3rem 6.8rem;
     border-radius: 1rem;
@@ -706,6 +894,9 @@ input:-webkit-autofill:active+.input-placeholder {
 
     @include breakpoint($xl-bp) {
       padding: 1rem 2rem;
+    }
+    @include breakpoint($sm-bp) {
+      border-radius: 0.5rem;
     }
 
     img {
@@ -717,7 +908,9 @@ input:-webkit-autofill:active+.input-placeholder {
 }
 
 .swiper-arrows {
-
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
   .prev,
   .next {
     position: absolute;

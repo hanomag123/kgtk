@@ -1,0 +1,55 @@
+
+
+.abiturients-subtitle {
+  max-width: 69.2rem;
+}
+
+.abiturients-text {
+  margin-top: 4rem;
+  max-width: 65.2rem;
+  h3,h4 {
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    @include breakpoint($sm-bp) {
+      margin-top: 3rem;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &:nth-child(2) {
+      margin-top: 3rem;
+    }
+  }
+
+  @include breakpoint($sm-bp) {
+    margin-top: 2rem;
+  }
+}
+
+
+
+strong {
+  font-weight: 700;
+  color: var(--green);
+}
+
+.abiturients-margin {
+  margin-top: 4rem;
+  @include breakpoint($sm-bp) {
+    margin-top: 2rem;
+  }
+}
+
+.abiturients-block {
+  display: grid;
+  grid-template-columns: 65.2rem 36.1rem;
+  align-items: center;
+  gap: 4rem;
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include breakpoint($sm-bp) {
+    margin-top: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

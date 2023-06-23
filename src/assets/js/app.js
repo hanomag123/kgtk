@@ -44,18 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     disableScroll() {
-        // Get the current page scroll position;
-        const scrollTop = window.pageYOffset  || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset  || document.documentElement.scrollLeft;
-      
-            // if any scroll is attempted, set this to the previous value;
-            window.onscroll = function() {
-                window.scrollTo(scrollLeft, scrollTop);
-            };
+      // Get the current page scroll position;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      // if any scroll is attempted, set this to the previous value;
+      window.onscroll = function () {
+        window.scrollTo(scrollLeft, scrollTop);
+      };
     }
 
     enableScroll() {
-      window.onscroll = function() {};
+      window.onscroll = function () { };
     }
   }
 
@@ -68,36 +68,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const header = document.querySelector('header');
 
-  let handler;
-
-  function scrollAdd() {
-    /* ... */
-    handler = throttle(function (event) {
-      scrollHeader();
-    }, 500);
-    document.addEventListener('scroll', handler, false);
-  }
-
-  function scrollRemove() {
-    /* ... */
-    document.removeEventListener('scroll', handler, false);
-  }
-
   if (xl.matches) {
-    scrollAdd();
     document.removeEventListener('scroll', scrollHeader);
   } else {
     document.addEventListener('scroll', scrollHeader);
-    scrollRemove();
   }
 
   xl.addEventListener('change', () => {
+    if (header) {
+      header.classList.remove('out');
+    }
     if (xl.matches) {
       document.removeEventListener('scroll', scrollHeader);
-      scrollAdd();
     } else {
       document.addEventListener('scroll', scrollHeader);
-      scrollRemove();
     }
   });
 
@@ -129,60 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
       prevScrollpos = 0;
       currentScrollPos = 0;
     };
-    const num = xl.matches ? 50 : 150;
-    if (currentScrollPos > num) {
-      header.classList.add('header--active');
-    } else {
-      header.classList.remove('header--active');
-    };
+
     if (prevScrollpos >= currentScrollPos) {
       header.classList.remove('out');
-    } else {
+    } else if (prevScrollpos < currentScrollPos && currentScrollPos > 100) {
       header.classList.add('out');
     };
     prevScrollpos = currentScrollPos;
   };
-
-  function initHeader() {
-    var currentScrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    const num = xl.matches ? 50 : 150;
-    if (currentScrollPos > num) {
-      header.classList.add('header--active');
-    } else {
-      header.classList.remove('header--active');
-    }
-  }
-
-  initHeader();
-
-  function throttle(func, ms) {
-    let isThrottled = false,
-      savedArgs,
-      savedThis;
-
-    function wrapper() {
-
-      if (isThrottled) { // (2);
-        savedArgs = arguments;
-        savedThis = this;
-        return;
-      }
-
-      func.apply(this, arguments); // (1);
-
-      isThrottled = true;
-
-      setTimeout(function () {
-        isThrottled = false; // (3);
-        if (savedArgs) {
-          wrapper.apply(savedThis, savedArgs);
-          savedArgs = savedThis = null;
-        }
-      }, ms);
-    }
-
-    return wrapper;
-  }
 
   const inputs = document.querySelectorAll('input,textarea');
   if (inputs.length) {
@@ -225,14 +163,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const swiper3 = new Swiper('.partners-swiper', {
     loop: false,
-    slidesPerView: 4,
-    spaceBetween: 40,
+    slidesPerView: 2.7,
+    spaceBetween: 16,
     speed: 500,
     grabCursor: true,
     navigation: {
       nextEl: '.partners-wrapper .next',
       prevEl: '.partners-wrapper .prev',
     },
+    breakpoints: {
+      // when window width is >= 320px
+      501: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+    }
   })
 
   const mobileSwipers = document.querySelectorAll('.news-swiper');
@@ -282,33 +227,33 @@ document.addEventListener("DOMContentLoaded", () => {
       create a new DIV that will act as an option item: */
       c = document.createElement("DIV");
       c.innerHTML = selElmnt.options[j].innerHTML;
-      c.addEventListener("click", function(e) {
-          /* When an item is clicked, update the original select box,
-          and the selected item: */
-          var y, i, k, s, h, sl, yl, sel;
-          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-          sl = s.length;
-          h = this.parentNode.previousSibling;
-          sel = this.parentNode.previousSibling.classList.add('select-selected--active')
-          for (i = 0; i < sl; i++) {
-            if (s.options[i].innerHTML == this.innerHTML) {
-              s.selectedIndex = i;
-              h.innerHTML = this.innerHTML;
-              y = this.parentNode.getElementsByClassName("same-as-selected");
-              yl = y.length;
-              for (k = 0; k < yl; k++) {
-                y[k].removeAttribute("class");
-              }
-              this.setAttribute("class", "same-as-selected");
-              break;
+      c.addEventListener("click", function (e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl, sel;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        sel = this.parentNode.previousSibling.classList.add('select-selected--active')
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
             }
+            this.setAttribute("class", "same-as-selected");
+            break;
           }
-          h.click();
+        }
+        h.click();
       });
       b.appendChild(c);
     }
     x[i].appendChild(b);
-    a.addEventListener("click", function(e) {
+    a.addEventListener("click", function (e) {
       /* When the select box is clicked, close any other select boxes,
       and open/close the current select box: */
       e.stopPropagation();
@@ -317,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.classList.toggle("select-arrow-active");
     });
   }
-  
+
   function closeAllSelect(elmnt) {
     /* A function that will close all select boxes in the document,
     except the current select box: */
@@ -339,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  
+
   /* If the user clicks anywhere outside the select box,
   then close all select boxes: */
   document.addEventListener("click", closeAllSelect);
@@ -350,10 +295,61 @@ document.addEventListener("DOMContentLoaded", () => {
   if (accordionButton.length) {
     accordionButton.forEach(el => {
       el.addEventListener('click', function () {
-        this.classList.toggle('--active');
         this.parentElement.classList.toggle('--active');
       })
     })
+  }
+
+
+
+  const maininfoButtons = document.querySelectorAll('.maininfo-list .maininfo-button');
+  const maininfoContent = document.querySelector('.maininfo-content');
+  if (maininfoButtons.length && maininfoContent) {
+    maininfoButtons.forEach(el => {
+      el.addEventListener('click', function () {
+        if (xl.matches) {
+          const activeMainInfo = document.querySelector('.maininfo-list .--active');
+          if (activeMainInfo) {
+            if (activeMainInfo === this) {
+              maininfoButtons.forEach(button => button.classList.remove('--active'));
+            } else {
+              maininfoButtons.forEach(button => button.classList.remove('--active'));
+              this.classList.add('--active');
+            }
+          } else {
+            this.classList.add('--active');
+          }
+          maininfoContent.innerHTML = this.nextElementSibling.innerHTML;
+        } else {
+          maininfoButtons.forEach(button => button.classList.remove('--active'));
+          this.classList.add('--active');
+          maininfoContent.innerHTML = this.nextElementSibling.innerHTML;
+        }
+
+
+        if (xl.matches) {
+          const header = document.querySelector('header');
+          const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+          let headerH = null;
+          if (header) {
+            headerH = header.getBoundingClientRect().height;
+          }
+          const yOffset = headerH ? -headerH : -200;
+          const y = this.getBoundingClientRect().top + currentScrollPos + yOffset - 15;
+
+          window.scrollTo({ top: y, behavior: 'auto' });
+        }
+      })
+    })
+  }
+
+  const activeMainInfo = document.querySelector('.maininfo-list .--active');
+  if (activeMainInfo) {
+    if (!xl.matches) {
+      activeMainInfo.click();
+    }
+  } else if (maininfoButtons.length) {
+    maininfoButtons[0].click();
   }
 });
 
