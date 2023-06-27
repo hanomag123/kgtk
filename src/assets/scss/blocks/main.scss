@@ -972,3 +972,71 @@ input:-webkit-autofill:active+.input-placeholder {
   opacity: 0;
   pointer-events: none;
 }
+
+.to-top-button {
+  background-color: var(--green);
+  width: 3.2rem;
+  height: 3.2rem;
+  display: block;
+  border-radius: 100%;
+  border: 0;
+  padding: 0;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  transform: rotate(90deg) translate3d(calc(100% + 2rem), 0, 0);
+  z-index: 10;
+  transition: transform .3s;
+  box-shadow: 0 0 1rem rgba($color: #FFFFFF, $alpha: 0.3);
+  @include breakpoint($sm-bp) {
+    transform: rotate(90deg) translate3d(calc(100% + 1.6rem), 0, 0);
+    right: 1.6rem;
+    bottom: 1.6rem;
+  }
+  &.--white {
+    background-color: var(--white);
+
+    svg {
+      fill: var(--green);
+    }
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: var(--white);
+  }
+  &.active {
+    transform: translate3d(0, 0, 0) rotate(90deg);
+    pointer-events: all;
+  }
+}
+
+.new-container {
+  max-width: 79rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  p {
+    margin-bottom: 2rem;
+  }
+}
+
+figure {
+  width: 100%;
+  height: 50rem;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    height: 32.5rem;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+}

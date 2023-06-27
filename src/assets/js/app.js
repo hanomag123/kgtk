@@ -68,22 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const header = document.querySelector('header');
 
-  if (xl.matches) {
-    document.removeEventListener('scroll', scrollHeader);
-  } else {
-    document.addEventListener('scroll', scrollHeader);
-  }
+  // if (xl.matches) {
+  //   document.removeEventListener('scroll', scrollHeader);
+  // } else {
+  //   document.addEventListener('scroll', scrollHeader);
+  // }
 
-  xl.addEventListener('change', () => {
-    if (header) {
-      header.classList.remove('out');
-    }
-    if (xl.matches) {
-      document.removeEventListener('scroll', scrollHeader);
-    } else {
-      document.addEventListener('scroll', scrollHeader);
-    }
-  });
+  // xl.addEventListener('change', () => {
+  //   if (header) {
+  //     header.classList.remove('out');
+  //   }
+  //   if (xl.matches) {
+  //     document.removeEventListener('scroll', scrollHeader);
+  //   } else {
+  //     document.addEventListener('scroll', scrollHeader);
+  //   }
+  // });
 
   function disableScroll() {
     // Get the current page scroll position;
@@ -351,6 +351,51 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (maininfoButtons.length) {
     maininfoButtons[0].click();
   }
+
+
+  const btn = document.querySelector('.to-top-button');
+
+  if (btn) {
+    document.addEventListener('scroll', btnHandler);
+
+    btn.addEventListener('click', function () {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+
+  }
+
+  function btnHandler () {
+    var currentScrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScrollPos < 0) {
+      currentScrollPos = 0;
+      prevScrollpos = 0;
+    };
+    if (prevScrollpos < 0) {
+      prevScrollpos = 0;
+      currentScrollPos = 0;
+    };
+
+
+
+    if (currentScrollPos >= 300) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    };
+    prevScrollpos = currentScrollPos;
+  }
+
+  const yearNow = document.getElementById('nowYear');
+
+  if (yearNow) {
+    const year = new Date().getFullYear();
+
+    if (year) {
+      yearNow.innerHTML = year;
+    }
+  }
+
 });
 
 
