@@ -391,6 +391,12 @@ h4,
   }
 }
 
+button.page-link {
+  padding: 0;
+  border: 0;
+  background-color: unset;
+  text-align: start;
+}
 .page-link {
   color: var(--green);
   text-decoration: underline;

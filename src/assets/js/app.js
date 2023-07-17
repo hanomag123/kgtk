@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  function btnHandler () {
+  function btnHandler() {
     var currentScrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
     if (currentScrollPos < 0) {
       currentScrollPos = 0;
@@ -395,6 +395,75 @@ document.addEventListener("DOMContentLoaded", () => {
       yearNow.innerHTML = year;
     }
   }
+
+  function modalHandler() {
+    const modal = document.querySelector(`${this.dataset?.modal}`) || this
+    if (modal.classList.contains('regModal') && modal.hidden) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+    if (modal) {
+      if (modal.hidden) {
+        modal.hidden = !modal.hidden
+        modal.style.setProperty('pointer-events', 'auto');
+        setTimeout(() => {
+          modal.style.opacity = 1
+        }, 10);
+      } else {
+        modal.style.opacity = 0
+        modal.style.setProperty('pointer-events', null);
+        const numb = Number(getComputedStyle(modal).transitionDuration.match(/(\d+\.\d+)|(\d+)/g)[0]);
+        if (numb > 0) {
+          modal.addEventListener('transitionend', hideaftertransition);
+        } else {
+          modal.hidden = true
+        }
+      }
+    }
+  }
+
+  const regModal = document.querySelectorAll('.regModal');
+
+  if (regModal) {
+    regModal.forEach(el => {
+      el.addEventListener('click', function () {
+        if (event.target.classList.contains('regModal')) {
+          modalHandler.apply(this);
+        }
+      });
+      const closeButton = el.querySelectorAll('.close-button');
+      if (closeButton.length) {
+        closeButton.forEach(button => {
+          button.addEventListener('click', () => {
+            modalHandler.apply(el);
+          });
+        })
+      }
+    });
+  }
+
+
+  function hideaftertransition() {
+    this.hidden = true
+    this.removeEventListener('transitionend', hideaftertransition);
+  }
+
+  document.addEventListener('click', () => {
+    const dataModal = event.target.closest('[data-modal]');
+    if (dataModal) {
+      modalHandler.apply(dataModal);
+      return;
+    }
+
+    const err = event.target.closest('.error');
+
+    if (err) {
+      const errors = document.querySelectorAll('.error');
+      if (errors.length)
+        errors.forEach(el => el.classList.remove('error'));
+    }
+  })
 
 });
 

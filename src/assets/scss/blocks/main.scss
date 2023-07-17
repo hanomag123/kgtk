@@ -28,6 +28,7 @@
   }
 }
 
+h1,.h1,
 .main-block-title {
   font-weight: 700;
   font-size: 5.6rem;
@@ -1043,5 +1044,167 @@ figure {
     height: 100%;
     object-fit: cover;
     border-radius: 1rem;
+  }
+}
+
+.modal-policy {
+  * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  h1, h2, h3 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    @include breakpoint($xl-bp) {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  p {
+    margin-bottom: 2rem;
+    @include breakpoint($xl-bp) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  ul, ol {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    @include breakpoint($xl-bp) {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  ul {
+    li {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.7em;
+        left: 0;
+        width: 1rem;
+        height: 0.1rem;
+        border-radius: 1rem;
+        background-color: var(--green);
+    
+        @include breakpoint($xl-bp) {
+          width: 1rem;
+        }
+      }
+    }
+  }
+  ol {
+    counter-reset: num;
+    li {
+      counter-increment: num;
+      &::before {
+        content: counter(num)'.';
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: bolder;
+        color: var(--green);
+      }
+    }
+  }
+}
+
+.regModal {
+  transition: opacity .3s;
+  will-change: opacity;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.close-button-style {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  width: 4rem;
+  height: 4rem;
+  border: 0;
+  background-color: var(--white);
+  padding: 0;
+  &:hover {
+    svg {
+      stroke: var(--blue);
+    }
+  }
+  @include breakpoint($xl-bp) {
+    top: 2rem;
+    right: 4rem;
+  }
+  @include breakpoint($sm-bp) {
+    top: 2rem;
+    right: 2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='33' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' transform='translate(0 0.5)' fill='white'/%3E%3Cpath d='M6 6.5L26 26.5' stroke='%231A1D1E' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M26 6.5L6 26.5' stroke='%231A1D1E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: opacity .3s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.modal-overlay {
+  background: rgba(26, 29, 30, 0.4);
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-block {
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 8rem 4rem;
+  max-width: 144rem;
+  position: relative;
+  max-height: 100%;
+  overflow: auto;
+
+  @include breakpoint($xl-bp) {
+    padding: 6rem 2rem;
+  }
+
+  
+  &::-webkit-scrollbar {
+    width: 0.5rem; 
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 0;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--lgrey);
+    border-radius: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border-radius: 0.5rem;
   }
 }

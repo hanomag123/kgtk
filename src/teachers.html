@@ -1,68 +1,101 @@
-<section class="container">
+<section>
 
-  <ul class="breadcrumbs">
+  <ul class="breadcrumbs container">
     <li><a href="#">Главная</a></li>
     <li><a href="#">Сведения об образовательной организации</a></li>
   </ul>
 
-  <h1 class="h2 title-margin">Сведения об образовательной организации</h1>
+  <h1 class="h2 title-margin container">Сведения <br class="mob-br">об образовательной организации</h1>
 
-  <div class="maininfo-block page-margin-container">
+  <div class="maininfo-block page-margin-container container">
     <ul class="maininfo-list">
-      <li><a href="#">Основные сведения</a></li>
-      <li><a href="#">Структура и органы управления</a></li>
-      <li><a href="#">Документы</a></li>
-      <li><a href="#">Образование</a></li>
-      <li><a href="#">Образовательные стандарты и требования</a></li>
-      <li><a href="#" class="--active">Руководство. Педагоги</a></li>
-      <li><a href="#">Материально-техническое обеспечение</a></li>
-      <li><a href="#">Стипендии и меры поддержки обучающихся</a></li>
-      <li><a href="#">Платные образовательные услуги</a></li>
-      <li><a href="#">Финансово-хозяйственная деятельность</a></li>
-      <li><a href="#">Вакантные места для приема (перевода) обучающихся</a></li>
-      <li><a href="#">Доступная среда</a></li>
-      <li><a href="#">Международное сотрудничество</a></li>
+      <li>
+        <div class="maininfo-button"><a href="#">Основные сведения</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Структура и органы управления</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Документы</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Образование</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Образовательные стандарты и требования</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button --active"><a href="#">Руководство. Педагоги</a></div> 
+
+        <!-- Container for content by click only on mobile -->
+        <div class="maininfo-block-content">
+          <div>
+            <div class="teachers-top container">
+              <h2 class="h3 maininfo-subtitle">Руководство. Педагоги</h2>
+              <a href="#" download class="page-link text-2">Положение о Педагогическом совете ЧПОУ КГТК</a>
+            </div>
+
+            <div class="swiper maininfo-margin news-swiper">
+              <ul class="swiper-wrapper teachers-list">
+                <li class="swiper-slide teachers-item">
+                  <div class="teachers-img img-cover">
+                    <img src="./assets/images/teachers/teachers-1.jpg" alt="teacher">
+                  </div>
+                  <div class="h4 teachers-name">Павлов Олег Федорович</div>
+                  <div class="teachers-type">Директор, Кандидат юридических наук </div>
+                </li>
+                <li class="swiper-slide teachers-item">
+                  <div class="teachers-img img-cover">
+                    <img src="./assets/images/teachers/teachers-2.jpg" alt="teacher">
+                  </div>
+                  <div class="h4 teachers-name">Кокорева Лариса Витальевна</div>
+                  <div class="teachers-type">Кокорева Лариса Витальевна</div>
+                </li>
+                <li class="swiper-slide teachers-item">
+                  <div class="teachers-img img-cover">
+                    <img src="./assets/images/teachers/teachers-3.jpg" alt="teacher">
+                  </div>
+                  <div class="h4 teachers-name">Саляхова Гузель Миннулловна</div>
+                  <div class="teachers-type">Гл. бухгалтер</div>
+                </li>
+                <li class="swiper-slide teachers-item">
+                  <div class="teachers-img img-cover">
+                    <img src="./assets/images/teachers/teachers-4.jpg" alt="teacher">
+                  </div>
+                  <div class="h4 teachers-name">Галиахметова Татьяна Викторовна</div>
+                  <div class="teachers-type">Старший менеджер</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Материально-техническое обеспечение</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Стипендии и меры поддержки обучающихся</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Платные образовательные услуги</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Финансово-хозяйственная деятельность</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Вакантные места для приема (перевода) обучающихся</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Доступная среда</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Международное сотрудничество</a></div>
+      </li>
     </ul>
 
-    <div>
-      <div class="teachers-top">
-        <h2 class="h3">Руководство. Педагоги</h2>
-        <a href="#" download class="page-link text-2">Положение о Педагогическом совете ЧПОУ КГТК</a>
-      </div>
+    <!-- Container for content by click only on desctop-->
+    <div class="maininfo-content">
 
-      <div class="maininfo-margin">
-        <ul class="teachers-list">
-          <li class="teachers-item">
-            <div class="teachers-img img-cover">
-              <img src="./assets/images/teachers/teachers-1.jpg" alt="teacher">
-            </div>
-            <div class="h4 teachers-name">Павлов Олег Федорович</div>
-            <div class="teachers-type">Директор, Кандидат юридических наук </div>
-          </li>
-          <li class="teachers-item">
-            <div class="teachers-img img-cover">
-              <img src="./assets/images/teachers/teachers-2.jpg" alt="teacher">
-            </div>
-            <div class="h4 teachers-name">Кокорева Лариса Витальевна</div>
-            <div class="teachers-type">Кокорева Лариса Витальевна</div>
-          </li>
-          <li class="teachers-item">
-            <div class="teachers-img img-cover">
-              <img src="./assets/images/teachers/teachers-3.jpg" alt="teacher">
-            </div>
-            <div class="h4 teachers-name">Саляхова Гузель Миннулловна</div>
-            <div class="teachers-type">Гл. бухгалтер</div>
-          </li>
-          <li class="teachers-item">
-            <div class="teachers-img img-cover">
-              <img src="./assets/images/teachers/teachers-4.jpg" alt="teacher">
-            </div>
-            <div class="h4 teachers-name">Галиахметова Татьяна Викторовна</div>
-            <div class="teachers-type">Старший менеджер</div>
-          </li>
-        </ul>
-      </div>
     </div>
-  </div>
   </div>
 </section>

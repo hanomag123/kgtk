@@ -176,4 +176,14 @@
   * {
     color: var(--grey);
   }
+
+  button {
+    padding: 0;
+    border: 0;
+    background-color: unset;
+    text-align: start;
+    @include breakpoint($xl-bp) {
+      text-align: center;
+    }
+  }
 }

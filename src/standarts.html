@@ -1,57 +1,96 @@
-<section class="container">
+<section>
 
-  <ul class="breadcrumbs">
+  <ul class="breadcrumbs container">
     <li><a href="#">Главная</a></li>
     <li><a href="#">Сведения об образовательной организации</a></li>
   </ul>
 
-  <h1 class="h2 title-margin">Сведения об образовательной организации</h1>
+  <h1 class="h2 title-margin container">Сведения <br class="mob-br">об образовательной организации</h1>
 
-  <div class="maininfo-block page-margin-container">
+  <div class="maininfo-block page-margin-container container">
     <ul class="maininfo-list">
-      <li><a href="#">Основные сведения</a></li>
-      <li><a href="#">Структура и органы управления</a></li>
-      <li><a href="#">Документы</a></li>
-      <li><a href="#">Образование</a></li>
-      <li><a href="#" class="--active">Образовательные стандарты и требования</a></li>
-      <li><a href="#">Руководство. Педагоги</a></li>
-      <li><a href="#">Материально-техническое обеспечение</a></li>
-      <li><a href="#">Стипендии и меры поддержки обучающихся</a></li>
-      <li><a href="#">Платные образовательные услуги</a></li>
-      <li><a href="#">Финансово-хозяйственная деятельность</a></li>
-      <li><a href="#">Вакантные места для приема (перевода) обучающихся</a></li>
-      <li><a href="#">Доступная среда</a></li>
-      <li><a href="#">Международное сотрудничество</a></li>
+      <li>
+        <div class="maininfo-button"><a href="#">Основные сведения</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Структура и органы управления</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Документы</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Образование</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button --active"><a href="#">Образовательные стандарты и требования</a></div>
+
+        <!-- Container for content by click only on mobile -->
+        <div class="maininfo-block-content">
+          <div>
+            <h2 class="h3 maininfo-subtitle">Образовательные стандарты и требования</h2>
+
+            <div class="table-container maininfo-margin">
+              <table class="--standarts">
+                <thead>
+                  <tr>
+                    <td>Наименования специальностей </td>
+                    <td>Коды специальностей</td>
+                    <td>Уровень образования</td>
+                    <td>Присваиваемые профессии</td>
+                    <td>Образовательные стандарты</td>
+                  </tr>
+                </thead>
+
+                <tr>
+                  <td><strong >Экономика и бухгалтерский учет (по отраслям)</strong></td>
+                  <td>38.02.01</td>
+                  <td>Среднее профессиональное образование</td>
+                  <td>Бухгалтер</td>
+                  <td><a href="#" download>Посмотреть стандарт</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>Дошкольное образование</strong></td>
+                  <td>38.02.01</td>
+                  <td>Среднее профессиональное образование</td>
+                  <td>Воспитатель детей дошкольного возраста </td>
+                  <td><a href="#" download>Посмотреть стандарт</a></td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Руководство. Педагоги</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Материально-техническое обеспечение</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Стипендии и меры поддержки обучающихся</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Платные образовательные услуги</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Финансово-хозяйственная деятельность</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Вакантные места для приема (перевода) обучающихся</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Доступная среда</a></div>
+      </li>
+      <li>
+        <div class="maininfo-button"><a href="#">Международное сотрудничество</a></div>
+      </li>
     </ul>
 
-    <div>
-      <h2 class="h3">Образовательные стандарты и требования</h2>
+    <!-- Container for content by click only on desctop-->
+    <div class="maininfo-content">
 
-      <div class="table --standarts maininfo-margin">
-        <ul class="table-header">
-          <li>Наименования специальностей </li>
-          <li>Коды специальностей</li>
-          <li>Уровень образования</li>
-          <li>Присваиваемые профессии</li>
-          <li>Образовательные стандарты</li>
-        </ul>
-
-        <ul class="table-row">
-          <li class="table-title">Экономика и бухгалтерский учет (по отраслям)</li>
-          <li>38.02.01</li>
-          <li>Среднее профессиональное образование</li>
-          <li>Бухгалтер</li>
-          <li><a href="#" download>Посмотреть стандарт</a></li>
-        </ul>
-
-        <ul class="table-row">
-          <li class="table-title">Дошкольное образование</li>
-          <li>38.02.01</li>
-          <li>Среднее профессиональное образование</li>
-          <li>Воспитатель детей дошкольного возраста </li>
-          <li><a href="#" download>Посмотреть стандарт</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
