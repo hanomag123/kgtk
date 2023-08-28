@@ -281,7 +281,32 @@ input:-webkit-autofill:active+.input-placeholder {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 4rem;
   row-gap: 8rem;
+  &.--spec {
+    grid-template-columns: repeat(4, 1fr);
+    @include breakpoint($xl-bp) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
+    .advantages-item {
+      padding-left: 0;
+      padding-top: 2.2rem;
+      @include breakpoint($xl-bp) {
+        padding-left: 5rem;
+        padding-top: 0;
+      }
+    
+      @include breakpoint($sm-bp) {
+        gap: 1rem;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+        @include breakpoint($xl-bp) {
+          top: 1rem;
+        }
+      }
+    }
+  }
   @include breakpoint($xl-bp) {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 4rem;

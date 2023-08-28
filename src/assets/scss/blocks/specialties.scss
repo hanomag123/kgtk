@@ -35,3 +35,128 @@
 .specialties-form {
   max-width: 51rem;
 }
+
+.spec {
+  margin-top: 6rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
+}
+
+.spec-block {
+  padding: 6rem;
+  background-color: var(--green);
+  border-radius: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8rem;
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+    gap: 4rem;
+  }
+}
+
+.spec-text {
+  color: var(--white);
+  max-width: 59.2rem;
+}
+
+.spec-list {
+  max-width: 73rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & > * {
+      color: var(--white);
+    }
+  }
+}
+
+.spec-infos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+  @include breakpoint($xl-bp) {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  li {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & > * {
+      &:last-child {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.spec-plan {
+  display: flex;
+  flex-direction: column;
+  li {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-bottom: 0.1rem solid var(--grey);
+    @include breakpoint($xl-bp) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+.spec-ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
+  gap: 4rem;
+  counter-reset: num;
+  @include breakpoint($xl-bp) {
+    grid-template-columns: 1fr;
+  }
+  li {
+    background-color: var(--green);
+    padding: 3rem;
+    border-radius: 1rem;
+    color: var(--white);
+    counter-increment: num;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    &::before {
+      content: counter(num);
+      color: var(--white, #FFF);
+
+      /* Desktop/H2 */
+      font-size: 4.8rem;
+      font-weight: 700;
+      line-height: 110%; /* 52.8px */
+      @include breakpoint($xl-bp) {
+
+        /* Mobile/h2 */
+        font-size: 2.8rem;
+        line-height: 108%; /* 30.24px */
+      }
+    }
+  }
+}

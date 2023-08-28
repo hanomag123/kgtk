@@ -68,12 +68,20 @@
     }
   }
 
+  a {
+    text-decoration: underline;
+    color: var(--green);
+  }
+
 }
 
 .maininfo-content {
   width: 100%;
   overflow: hidden;
-
+  a {
+    color: var(--green);
+    text-decoration: underline;
+  }
   @include breakpoint($xl-bp) {
     display: none;
   }
